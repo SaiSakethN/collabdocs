@@ -17,6 +17,12 @@ No existing document was deleted in these tests. Unit tests mock the database. B
 
 ## Production verification
 
-Pending deployment of this change. The opt-in live browser test opens and cancels confirmation, verifies Bob lacks Delete on Alice-owned shared documents, compares Alice's document IDs before and after, and blocks all browser DELETE requests. It does not perform a real deletion.
+PASS on https://collabdocs-ten-iota.vercel.app: all five Playwright tests passed, including the opt-in live test. Alice opened the menu and confirmation for Product Launch Plan and cancelled. Bob had no Delete action on Alice-owned shared documents. Alice's document IDs were unchanged before and after, and zero browser DELETE attempts occurred in the real-data test. The other four tests used intercepted synthetic data.
+
+The production DELETE handler returned 404 for a random document ID first confirmed nonexistent by GET, and 401 without a demo identity. No DELETE request targeted an existing production document.
+
+Feature commit: `b7a06344252afa1ad7018daa10bc0935e3e59a6c`. Vercel production deployment: `dpl_HrGDRTQjsDq1whFKhuTcpBhMbhd8`, status READY, with the requested public alias. Production menu and confirmation screenshots were captured by the browser test.
+
+Screenshots: [visible card menu](screenshots/production-delete-menu.png) and [confirmation dialog](screenshots/production-delete-confirmation.png). Both show the actual public production application and were visually inspected.
 
 Run against the public deployment with PLAYWRIGHT_BASE_URL=https://collabdocs-ten-iota.vercel.app and VERIFY_LIVE=1, then `npm run test:e2e`.
