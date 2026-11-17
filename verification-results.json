@@ -1,0 +1,66 @@
+{
+  "base": "http://localhost:3002",
+  "verifiedAt": "2026-11-17T09:06:20.560Z",
+  "results": [
+    {
+      "name": "Homepage responds",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing and invalid identities rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Create document",
+      "status": "PASS"
+    },
+    {
+      "name": "Unshared document access rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Unshared edit rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Rename, save, reopen, and rich-text persistence",
+      "status": "PASS"
+    },
+    {
+      "name": "Stale updates rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid recipient and self-share rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Share and duplicate prevention",
+      "status": "PASS"
+    },
+    {
+      "name": "Recipient document listing and access",
+      "status": "PASS"
+    },
+    {
+      "name": "Recipient cannot manage sharing",
+      "status": "PASS"
+    },
+    {
+      "name": "Shared editor saves",
+      "status": "PASS"
+    },
+    {
+      "name": "Verification.txt import persists",
+      "status": "PASS"
+    },
+    {
+      "name": "Verification.md import persists",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid extension, empty, and oversized imports rejected",
+      "status": "PASS"
+    }
+  ]
+}
