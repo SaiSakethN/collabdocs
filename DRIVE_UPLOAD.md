@@ -2,7 +2,7 @@
 
 Folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir
 
-The connected Drive tool can upload files but cannot enable public link access on a folder. The user must open the folder, choose Share, change General access to **Anyone with the link**, choose **Viewer**, and save. Verify the folder opens from a signed-out/private browser before submitting it.
+The source ZIP and accompanying package files were uploaded and listed through the Drive connector. The user enabled public folder access, and permission metadata confirms **Anyone with the link — Viewer** (`type: anyone`, `role: reader`, no search discovery). A signed-out browser opening remains part of the manual checklist.
 
 The local package is `ajaia-submission/`. If any cloud upload fails, upload this entire directory manually. Keep the same folder URL in the assessment response. The source ZIP excludes `.env.local`, dependencies, caches, and Git internals.
 

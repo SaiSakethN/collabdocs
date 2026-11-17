@@ -4,12 +4,12 @@ CollabDocs is a document workspace built for the Ajaia assessment. It supports r
 
 ## Deliverable links
 
-| Deliverable                    | URL                                                                                                      |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Google Drive submission folder | https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir (public Viewer sharing pending) |
-| Live application               | https://collabdocs-ten-iota.vercel.app                                                                   |
-| GitHub repository              | https://github.com/SaiSakethN/collabdocs                                                                 |
-| Video walkthrough              | **PENDING — user recording and upload required**                                                         |
+| Deliverable                    | URL                                                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Google Drive submission folder | https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir (Anyone with the link — Viewer verified) |
+| Live application               | https://collabdocs-ten-iota.vercel.app                                                                            |
+| GitHub repository              | https://github.com/SaiSakethN/collabdocs                                                                          |
+| Video walkthrough              | **PENDING — user recording and upload required**                                                                  |
 
 ## Demo instructions
 

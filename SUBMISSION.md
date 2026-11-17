@@ -7,7 +7,7 @@ A focused workspace for writing, importing, saving, and sharing rich-text docume
 - Live application: https://collabdocs-ten-iota.vercel.app
 - GitHub repository: https://github.com/SaiSakethN/collabdocs
 - Walkthrough video: **PENDING — user will record and upload**
-- Google Drive folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir — public Viewer sharing must be enabled manually.
+- Google Drive folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir — Anyone with the link — Viewer verified in permission metadata. Source ZIP and all package documents uploaded and listed successfully.
 
 ## Implemented
 
@@ -32,7 +32,7 @@ See VERIFICATION.md and verification-results.json for evidence and the manual ch
 
 ## Limitations and next improvements
 
-Client-selected demo identities can be impersonated. Next steps are verified sessions and user-scoped database policies, browser regression coverage, recovery drafts, conflict resolution, pagination, and sharing revocation. Real-time collaboration, comments, history, and PDF export were intentionally omitted. The walkthrough video and public Drive sharing remain pending. The GitHub repository, Vercel deployment, and Drive folder URLs above were verified through their respective services.
+Client-selected demo identities can be impersonated. Next steps are verified sessions and user-scoped database policies, browser regression coverage, recovery drafts, conflict resolution, pagination, and sharing revocation. Real-time collaboration, comments, history, and PDF export were intentionally omitted. The walkthrough video and browser checks remain pending. The GitHub repository, Vercel deployment, Drive package contents, and public Viewer permission were verified through their respective services.
 
 ## Submitted files
 

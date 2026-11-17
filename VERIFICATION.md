@@ -43,10 +43,10 @@ The API checks created three clearly labeled verification documents. No test res
 | README complete              | PASS       | Setup, configuration, features, tests, deployment, and limitations    |
 | Architecture note            | PASS       | ARCHITECTURE.md                                                       |
 | AI workflow note             | PASS       | AI_WORKFLOW.md records actual work                                    |
-| Submission package           | PASS       | Generated locally; video link and public Drive sharing remain pending |
+| Submission package           | PASS       | Local ZIP and documents uploaded to Drive; video link remains pending |
 | Video script                 | PASS       | VIDEO_SCRIPT.md                                                       |
 | Actual video link            | BLOCKED    | User records and uploads                                              |
-| Google Drive link            | PASS       | Folder created and metadata verified; public Viewer sharing pending   |
+| Google Drive link            | PASS       | Files listed and Anyone/reader folder permission verified             |
 | Final Markdown response      | PASS       | ASSESSMENT_RESPONSE.md prepared with explicit pending links           |
 
 ## Browser verification limitation
