@@ -22,32 +22,32 @@ The API checks created three clearly labeled verification documents. No test res
 
 ## Assessment checklist
 
-| Required item                | Status     | Scope                                                              |
-| ---------------------------- | ---------- | ------------------------------------------------------------------ |
-| Application starts locally   | PASS       | Production server and homepage HTTP response                       |
-| Documents can be created     | PASS       | Real API and Supabase                                              |
-| Documents can be renamed     | PASS       | Real API and reopened title                                        |
-| Rich-text editing works      | NOT TESTED | Tiptap implemented; browser interaction pending                    |
-| Formatting persists          | PASS       | JSON marks, heading, and list saved and re-read through API        |
-| Autosave works               | NOT TESTED | Debounce implemented; browser timing pending                       |
-| Documents reopen correctly   | PASS       | Real API re-read matches saved content                             |
-| TXT and Markdown import work | PASS       | Real uploads persisted and reopened                                |
-| Owner/shared distinction     | NOT TESTED | UI badges and sections implemented; browser check pending          |
-| Sharing Alice to Bob         | PASS       | Grant, Bob listing/open/edit, and denial checks                    |
-| Permission checks exist      | PASS       | Unit tests plus real endpoint denials                              |
-| Database persistence         | PASS       | Independent create/update/read requests against Supabase           |
-| Automated tests              | PASS       | 11 Vitest cases                                                    |
-| Production build             | PASS       | Local production build                                             |
-| GitHub pushed                | BLOCKED    | Repository creation and publication approval pending               |
-| Vercel accessible            | BLOCKED    | Publication approval and deployment pending                        |
-| README complete              | PASS       | Setup, configuration, features, tests, deployment, and limitations |
-| Architecture note            | PASS       | ARCHITECTURE.md                                                    |
-| AI workflow note             | PASS       | AI_WORKFLOW.md records actual work                                 |
-| Submission package           | PASS       | Generated locally by packaging script; public links remain pending |
-| Video script                 | PASS       | VIDEO_SCRIPT.md                                                    |
-| Actual video link            | BLOCKED    | User records and uploads                                           |
-| Google Drive link            | BLOCKED    | Upload and sharing approval pending                                |
-| Final Markdown response      | PASS       | ASSESSMENT_RESPONSE.md prepared with explicit pending links        |
+| Required item                | Status     | Scope                                                                 |
+| ---------------------------- | ---------- | --------------------------------------------------------------------- |
+| Application starts locally   | PASS       | Production server and homepage HTTP response                          |
+| Documents can be created     | PASS       | Real API and Supabase                                                 |
+| Documents can be renamed     | PASS       | Real API and reopened title                                           |
+| Rich-text editing works      | NOT TESTED | Tiptap implemented; browser interaction pending                       |
+| Formatting persists          | PASS       | JSON marks, heading, and list saved and re-read through API           |
+| Autosave works               | NOT TESTED | Debounce implemented; browser timing pending                          |
+| Documents reopen correctly   | PASS       | Real API re-read matches saved content                                |
+| TXT and Markdown import work | PASS       | Real uploads persisted and reopened                                   |
+| Owner/shared distinction     | NOT TESTED | UI badges and sections implemented; browser check pending             |
+| Sharing Alice to Bob         | PASS       | Grant, Bob listing/open/edit, and denial checks                       |
+| Permission checks exist      | PASS       | Unit tests plus real endpoint denials                                 |
+| Database persistence         | PASS       | Independent create/update/read requests against Supabase              |
+| Automated tests              | PASS       | 11 Vitest cases                                                       |
+| Production build             | PASS       | Local production build                                                |
+| GitHub pushed                | PASS       | Public main branch verified at github.com/SaiSakethN/collabdocs       |
+| Vercel accessible            | PASS       | Public HTTPS homepage and all 15 real API checks passed               |
+| README complete              | PASS       | Setup, configuration, features, tests, deployment, and limitations    |
+| Architecture note            | PASS       | ARCHITECTURE.md                                                       |
+| AI workflow note             | PASS       | AI_WORKFLOW.md records actual work                                    |
+| Submission package           | PASS       | Generated locally; video link and public Drive sharing remain pending |
+| Video script                 | PASS       | VIDEO_SCRIPT.md                                                       |
+| Actual video link            | BLOCKED    | User records and uploads                                              |
+| Google Drive link            | PASS       | Folder created and metadata verified; public Viewer sharing pending   |
+| Final Markdown response      | PASS       | ASSESSMENT_RESPONSE.md prepared with explicit pending links           |
 
 ## Browser verification limitation
 

@@ -4,12 +4,12 @@ CollabDocs is a document workspace built for the Ajaia assessment. It supports r
 
 ## Deliverable links
 
-| Deliverable                    | URL                                                             |
-| ------------------------------ | --------------------------------------------------------------- |
-| Google Drive submission folder | **PENDING — upload and sharing approval required**              |
-| Live application               | **PENDING — production deployment not yet published**           |
-| GitHub repository              | **PENDING — repository creation/publication approval required** |
-| Video walkthrough              | **PENDING — user recording and upload required**                |
+| Deliverable                    | URL                                                                                                      |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Google Drive submission folder | https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir (public Viewer sharing pending) |
+| Live application               | https://collabdocs-ten-iota.vercel.app                                                                   |
+| GitHub repository              | https://github.com/SaiSakethN/collabdocs                                                                 |
+| Video walkthrough              | **PENDING — user recording and upload required**                                                         |
 
 ## Demo instructions
 
@@ -46,10 +46,10 @@ Codex accelerated code generation, test cases, troubleshooting, and documentatio
 
 - **PASS:** 11 Vitest tests for permission logic, sharing validation, imports, safe conversion, titles, and content validation.
 - **PASS:** ESLint and the Next.js production build.
-- **PASS:** 15 real API integration checks covering database persistence, formatting JSON, import, sharing, access denial, duplicate shares, and version conflicts.
-- **NOT TESTED:** Browser toolbar interactions, autosave timing, and live deployment flows.
+- **PASS:** 15 real API integration checks on the public deployment covering database persistence, formatting JSON, import, sharing, access denial, duplicate shares, and version conflicts.
+- **NOT TESTED:** Browser toolbar interactions, autosave timing, and responsive visual checks.
 
-Browser automation was attempted but stopped at a computer-use URL policy guard. See VERIFICATION.md for the manual checklist; no browser screenshots or public live verification are fabricated.
+Browser automation was attempted but stopped at a computer-use URL policy guard. See VERIFICATION.md for the manual checklist. Live API checks passed; browser interaction and screenshots remain pending.
 
 ## Limitations and planned improvements
 

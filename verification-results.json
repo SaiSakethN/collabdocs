@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3003",
-  "verifiedAt": "2026-11-17T09:10:25.677Z",
+  "base": "https://collabdocs-ten-iota.vercel.app",
+  "verifiedAt": "2026-11-17T09:14:40.098Z",
   "results": [
     {
       "name": "Homepage responds",

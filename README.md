@@ -71,7 +71,7 @@ The API script defaults to http://localhost:3002. Set VERIFY_BASE_URL to test an
 5. Deploy, then test the actual public HTTPS origin. Run the API script with VERIFY_BASE_URL set to that URL and complete the browser checklist.
 6. Record verified links in the URL text files, SUBMISSION.md, and ASSESSMENT_RESPONSE.md. Public reviewers must be able to access the production URL without paying or signing into Vercel.
 
-No verified public deployment or repository link is implied by these instructions. Pending links are labeled in the submission files.
+Verified publication: https://collabdocs-ten-iota.vercel.app and https://github.com/SaiSakethN/collabdocs. All 15 API checks also passed on the public Vercel deployment. Video and Drive sharing remain tracked in the submission files.
 
 ## Limitations
 

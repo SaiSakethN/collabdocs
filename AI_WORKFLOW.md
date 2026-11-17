@@ -22,6 +22,9 @@ Work followed the brief's priority order: core persistence and editor, sharing/i
 - Used Vitest 4 after the current Vitest release conflicted with the starter's Node 20 types.
 - Added version checks and unsaved navigation warnings to reduce silent data loss.
 - Formatted source for review with Prettier.
+- Checked actual Tiptap schema serialization, discovered its numbered-list type attribute, and added a regression test before publication.
+- Pushed the public GitHub repository and deployed to Vercel after explicit user approval. The live API verification suite passed all 15 checks.
+- Vercel's default sign-in protection required a separate approval after automatic review rejected removing it under the general publication approval. It was disabled for this project only after the user specifically approved.
 
 ## Verification
 

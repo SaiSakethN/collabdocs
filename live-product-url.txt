@@ -1,1 +1,1 @@
-PENDING — No verified production deployment yet.
+https://collabdocs-ten-iota.vercel.app

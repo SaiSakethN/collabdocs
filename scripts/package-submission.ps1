@@ -19,7 +19,7 @@ try {
   }
 } finally { $taskZip.Dispose(); $taskStream.Dispose() }
 $taskManifest | Set-Content -Encoding UTF8 (Join-Path $taskPackage 'FILE_MANIFEST.txt')
-$taskDocs = @('README.md','ARCHITECTURE.md','AI_WORKFLOW.md','SUBMISSION.md','VERIFICATION.md','verification-results.json','ASSESSMENT_RESPONSE.md','VIDEO_SCRIPT.md','walkthrough-video.txt','live-product-url.txt','github-repository-url.txt')
+$taskDocs = @('README.md','ARCHITECTURE.md','AI_WORKFLOW.md','SUBMISSION.md','VERIFICATION.md','verification-results.json','ASSESSMENT_RESPONSE.md','VIDEO_SCRIPT.md','DRIVE_UPLOAD.md','walkthrough-video.txt','live-product-url.txt','github-repository-url.txt')
 foreach ($taskDoc in $taskDocs) { Copy-Item -LiteralPath (Join-Path $taskRoot $taskDoc) -Destination (Join-Path $taskPackage $taskDoc) -Force }
 Copy-Item -LiteralPath (Join-Path $taskRoot 'screenshots') -Destination $taskPackage -Recurse -Force
 Write-Output "Prepared $taskPackage with $($taskManifest.Count) source files."
