@@ -24,6 +24,7 @@ The light interface has responsive navigation, owned/shared badges, empty/loadin
 | GET /api/documents             | Lists only owned and granted documents for the selected demo identity           |
 | POST /api/documents            | Creates a document owned by that identity                                       |
 | GET /api/documents/:id         | Checks access before returning content                                          |
+| DELETE /api/documents/:id      | Owner-only permanent deletion, scoped by ID and owner in the mutation           |
 | PATCH /api/documents/:id       | Checks editor access, validates content, applies a conditional versioned update |
 | GET /api/documents/:id/shares  | Owner-only list of recipients                                                   |
 | POST /api/documents/:id/shares | Owner-only grant to a validated demo recipient                                  |
@@ -58,7 +59,11 @@ The server validates `x-demo-user` against Alice and Bob, then checks ownership 
 - Reused the existing app and installed Tiptap/Supabase rather than scaffolding another project.
 - Chose durable PostgreSQL and an explicit setup failure rather than silently falling back to temporary storage.
 - Used conditional versions to address basic collaboration conflicts within the time limit.
-- Prioritized editing, import, sharing, validation, and reproducible setup over optional comments, PDF export, delete, and version history.
+- Prioritized editing, import, sharing, validation, and reproducible setup over optional comments, PDF export and version history.
 - Added unit tests for domain rules and a repeatable real-API verification script. Browser verification is tracked separately and never inferred from unit tests.
 
 With another 2–4 hours: verified authentication and RLS, browser automation across Alice/Bob, recovery drafts and conflict comparison, pagination, document URLs, sharing revocation, dialog focus restoration, and production observability would be the next priorities.
+
+## Owner-only deletion
+
+The three-dot disclosure at each card's top-right opens document actions. Only owners see Delete document. A native modal dialog names the document, warns that deletion is permanent and removes collaborator access, focuses Cancel, and requires an explicit destructive confirmation. Failed requests leave the card intact and show an error. Successful responses remove it from the dashboard. DELETE /api/documents/:id checks identity, access, and ownership server-side, then filters the delete mutation by both document ID and owner ID. Existing ON DELETE CASCADE foreign keys remove sharing records atomically. The demo-identity security limitation still applies.

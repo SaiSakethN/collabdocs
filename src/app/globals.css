@@ -572,11 +572,123 @@ h1 {
   gap: 17px;
 }
 .document-card {
+  position: relative;
   border: 1px solid var(--line);
   background: white;
   border-radius: 9px;
-  overflow: hidden;
+  overflow: visible;
   transition: box-shadow 0.2s;
+}
+.document-actions {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  z-index: 2;
+}
+.document-actions[open] {
+  z-index: 3;
+}
+.document-actions summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #dce4d7;
+  border-radius: 6px;
+  background: white;
+  color: #52684c;
+  cursor: pointer;
+  list-style: none;
+  box-shadow: 0 1px 4px #26372b0a;
+}
+.document-actions summary::-webkit-details-marker {
+  display: none;
+}
+.document-actions summary[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.document-actions-panel {
+  position: absolute;
+  right: 0;
+  top: 39px;
+  min-width: 176px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+  box-shadow: 0 8px 25px #26372b22;
+}
+.document-actions-panel button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 10px;
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.document-actions-panel button:hover {
+  background: #f1f5ee;
+}
+.document-actions-panel .delete-action {
+  color: #b44339;
+  border-top: 1px solid var(--line);
+}
+.delete-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(450px, calc(100vw - 32px));
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 30px;
+  color: var(--ink);
+  box-shadow: 0 20px 80px #15271d33;
+}
+.delete-dialog::backdrop {
+  background: #172c2452;
+  backdrop-filter: blur(3px);
+}
+.delete-dialog h2 {
+  margin: 18px 0 12px;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+.delete-dialog p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #7b8682;
+  overflow-wrap: anywhere;
+}
+.delete-dialog-icon {
+  display: inline-flex;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff0ed;
+  color: #b44339;
+}
+.delete-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+.danger-button {
+  background: #b44339;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 11px 15px;
+  font-size: 11px;
+  font-weight: 600;
 }
 .document-card:hover {
   box-shadow: 0 6px 20px #26372b09;

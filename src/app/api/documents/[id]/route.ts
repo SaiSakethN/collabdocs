@@ -43,3 +43,27 @@ export async function PATCH(req: Request, ctx: Context) {
     return failure(e);
   }
 }
+
+export async function DELETE(req: Request, ctx: Context) {
+  try {
+    const user = actor(req);
+    const { client, document } = await accessible((await ctx.params).id, user);
+    if (document.owner_id !== user)
+      throw new AppError("Only the owner can delete this document.", 403);
+    // Repeat the ownership predicate in the mutation itself; never trust the UI.
+    const result = await client
+      .from("documents")
+      .delete()
+      .eq("id", document.id)
+      .eq("owner_id", user)
+      .select("id")
+      .maybeSingle();
+    if (result.error) throw result.error;
+    if (!result.data)
+      throw new AppError("Document not found or already deleted.", 404);
+    // document_shares is removed by the database's ON DELETE CASCADE constraint.
+    return Response.json({ deleted: true, id: document.id });
+  } catch (e) {
+    return failure(e);
+  }
+}

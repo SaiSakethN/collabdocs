@@ -9,6 +9,7 @@ A focused collaborative document workspace: write a draft, import your notes, an
 - Renaming, debounced autosave, manual save, visible failures, and unsaved navigation warnings.
 - UTF-8 TXT and Markdown import, 1 MiB limit, server validation, safe token-to-JSON conversion.
 - Owner/editor sharing with validated recipients and duplicate prevention.
+- A visible three-dot menu at the top-right of every document card. Owners can select Delete document and confirm permanent deletion; shared editors do not see Delete.
 - Durable Supabase PostgreSQL storage and conditional versions that reject stale updates.
 - Explicit DEMO MODE switcher for Alice and Bob.
 
@@ -75,8 +76,12 @@ Verified publication: https://collabdocs-ten-iota.vercel.app and https://github.
 
 ## Limitations
 
-Demo identities can be impersonated; real-time synchronization and automatic merge are out of scope. A conflict preserves edits in the open page but requires manual copy/reopen. Unsaved drafts do not survive a forced close or crash. Markdown supports common headings, paragraphs, emphasis, lists, quotes, and code; HTML is literal, links become text, and tables/images are not rendered as rich objects. There is no delete, sharing revocation, document version history, or pagination. Browser tests and screenshots are pending because computer-use verification ended at its browser URL policy guard.
+Demo identities can be impersonated; real-time synchronization and automatic merge are out of scope. A conflict preserves edits in the open page but requires manual copy/reopen. Unsaved drafts do not survive a forced close or crash. Markdown supports common headings, paragraphs, emphasis, lists, quotes, and code; HTML is literal, links become text, and tables/images are not rendered as rich objects. There is no sharing revocation, document version history, pagination, or undo for permanent deletion. Browser tests and screenshots are pending because computer-use verification ended at its browser URL policy guard.
 
 ## Submission
 
 See ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, VIDEO_SCRIPT.md, VERIFICATION.md, and ASSESSMENT_RESPONSE.md. The user records the walkthrough and submits the assessment. `scripts/package-submission.ps1` creates an upload-ready `ajaia-submission` directory and source ZIP without secrets, dependencies, caches, or Git internals.
+
+### Delete verification without deleting existing data
+
+Start the app on port 3010, then run `npm run test:e2e`. Playwright uses installed Chrome with an isolated headless profile. Four tests intercept synthetic documents and delete requests; no database record is deleted. Set PLAYWRIGHT_BASE_URL to another origin. Set VERIFY_LIVE=1 to enable a fifth check: read Alice and Bob documents, open and cancel confirmation, verify shared editors lack Delete, and confirm all document IDs remain unchanged. The live check aborts all browser DELETE requests as an additional safeguard.

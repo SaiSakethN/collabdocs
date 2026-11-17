@@ -19,6 +19,7 @@ import {
 import { USERS, type Document, type UserId } from "@/lib/domain";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import DocumentActions from "./document-actions";
 const DocumentEditor = dynamic(() => import("./document-editor"), {
   loading: () => <div className="empty">Opening your document…</div>,
 });
@@ -175,6 +176,17 @@ export default function Workspace() {
       setNotice("Shared. Your teammate can now open and edit this document.");
     } catch (e) {
       setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function deleteDocument(doc: Document) {
+    setBusy(true);
+    setError("");
+    try {
+      await api(`/api/documents/${doc.id}`, { method: "DELETE" });
+      setDocuments((current) => current.filter((item) => item.id !== doc.id));
+      setNotice(`Deleted “${doc.title}”.`);
     } finally {
       setBusy(false);
     }
@@ -497,6 +509,14 @@ export default function Workspace() {
                 <div className="document-grid">
                   {visible.map((doc) => (
                     <article className="document-card" key={doc.id}>
+                      <DocumentActions
+                        document={doc}
+                        user={user}
+                        disabled={busy}
+                        onOpen={() => void open(doc)}
+                        onShare={() => void showSharing(doc)}
+                        onDelete={() => deleteDocument(doc)}
+                      />
                       <button
                         className="document-open"
                         onClick={() => void open(doc)}
