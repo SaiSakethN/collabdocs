@@ -1,13 +1,14 @@
-# Screenshots pending
+﻿# Screenshots
 
-No screenshots were fabricated. Browser-control access was unavailable, and the Windows fallback ended at its browser URL policy guard.
+Existing Drive screenshot folder: https://drive.google.com/drive/folders/1wj_vQgtaIv6WjgEnfmU9TgKhCTzDI1vs
 
-After running the manual checklist, use the browser's screenshot feature or Windows Snipping Tool to save these images here:
+The user's six screenshots were already uploaded to that folder. They were listed, downloaded into this local directory for final packaging, and visually inspected; no API key or credential is visible in the inspected images.
 
-- dashboard.png
-- rich-text-editor.png
-- file-import.png
-- sharing-dialog.png
-- shared-with-me.png
+- 01-dashboard.png
+- 02-rich-text-editor.png
+- 03-import.png
+- 04-sharing.png
+- 05-shared-document.png
+- 06-delete-document.png
 
-Include only the app content; hide credentials, browser account information, and unrelated tabs. Rerun scripts/package-submission.ps1 to include the captured images in the submission package.
+The additional production-delete-menu.png and production-delete-confirmation.png files were captured earlier by isolated Playwright against the live app, with confirmation cancelled and no existing document deleted. They are separate actual evidence, not fabricated screenshots. The six existing cloud screenshots are preserved rather than re-uploaded as duplicates.

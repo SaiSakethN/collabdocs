@@ -1,58 +1,61 @@
-# CollabDocs
+﻿# CollabDocs
 
-CollabDocs is a document workspace built for the Ajaia assessment. It supports rich-text writing, durable saving, safe file import, and sharing with a teammate.
+A document workspace built for the Ajaia assessment, with rich-text editing, persistent saving, safe file import, sharing, and owner-only deletion.
 
-## Deliverable links
+## Deliverables
 
-| Deliverable                    | URL                                                                                                               |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Google Drive submission folder | https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir (Anyone with the link — Viewer verified) |
-| Live application               | https://collabdocs-ten-iota.vercel.app                                                                            |
-| GitHub repository              | https://github.com/SaiSakethN/collabdocs                                                                          |
-| Video walkthrough              | **PENDING — user recording and upload required**                                                                  |
+- **Live app:** https://collabdocs-ten-iota.vercel.app
+- **GitHub:** https://github.com/SaiSakethN/collabdocs
+- **Google Drive package:** https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir
+- **Final video:** https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing
+- **Screenshots:** https://drive.google.com/drive/folders/1wj_vQgtaIv6WjgEnfmU9TgKhCTzDI1vs
 
-## Demo instructions
+The submission folder has Anyone with the link - Viewer permission. Signed-out video access returned HTTP 206 and video/mp4 content; the connector did not expose the exact video permission list. The human-recorded walkthrough is supplied; its duration/content were not independently reviewed by Codex.
 
-Use the DEMO MODE identity switcher to choose Alice (alice@collabdocs.demo) or Bob (bob@collabdocs.demo). No passwords are required. Create a document as Alice, share it with Bob, then switch to Bob and select Shared with me.
+## Demo identities
 
-**Identity switching demonstrates the product but is not secure authentication. Anyone can choose either user. Do not store sensitive information.**
+Use the sidebar DEMO MODE switcher: Alice (alice@collabdocs.demo) or Bob (bob@collabdocs.demo). No passwords are required. Open Product Launch Plan as Alice, or choose Bob and Shared with me to inspect granted documents.
+
+**Demo identity switching is not secure authentication. Anyone can select either identity; use sample content only.**
 
 ## Implemented features
 
-- Responsive dashboard with search, owned/shared document sections, owner names, timestamps, and loading/empty/error states.
-- Tiptap rich-text editor with title changes, bold, italic, underline, headings, lists, and undo/redo.
-- Structured JSON persistence in Supabase PostgreSQL, debounced autosave, manual save, error indicators, and unsaved-change warnings.
-- Owner/editor sharing, recipient validation, duplicate prevention, and server-side permission checks.
-- TXT and Markdown import with file type, size, emptiness, and UTF-8 validation.
-- Versioned conditional saves reject stale writes rather than overwriting newer edits.
+- Dashboard search, owned/shared views, owners, modification dates, and loading/empty/error states.
+- Tiptap editing, renaming, bold/italic/underline, headings, lists, and structured JSON storage.
+- Debounced autosave, explicit save, visible failures, unsaved warnings, and version conflict detection.
+- TXT/Markdown import with UTF-8, extension, size, and emptiness validation; no untrusted HTML injection.
+- Owner/editor sharing with recipient validation, duplicate prevention, and server-side checks.
+- **Delete Document:** top-right three-dot menu on each card, visible Delete action for owners only, explicit permanent-deletion confirmation, and server-side ownership enforcement. Failed requests retain the card; deletion also removes sharing rows. Shared editors cannot delete.
+- Durable Supabase PostgreSQL storage across deployments.
 
 ## Engineering decisions
 
-The existing Next.js App Router project was retained. Route handlers are the trust boundary for validation and demo permission checks. A server-only Supabase client accesses PostgreSQL; no browser-only or ephemeral filesystem persistence is used. The SQL provides keys, indexes, timestamps, and uniqueness constraints. Tiptap JSON preserves rich text. Markdown is parsed into supported nodes without injecting raw HTML. Production authentication and real-time collaboration were intentionally deprioritized and are explicitly documented.
+One existing Next.js App Router application uses TypeScript, React, Tiptap, Lucide, Tailwind/custom CSS, and Supabase. Server routes validate input and enforce the documented demo permission model. A server-only database client keeps credentials out of frontend code. PostgreSQL stores JSONB content, owners, versions, and unique sharing records. Conditional version updates reject stale saves. Markdown tokens become supported rich-text nodes rather than arbitrary HTML.
 
 ## Setup
 
 1. Install Node 22 or 24 and run npm ci.
-2. Copy .env.example to .env.local. Configure SUPABASE_URL and the server-only SUPABASE_SERVICE_ROLE_KEY.
-3. Run supabase/schema.sql in Supabase SQL Editor to create and seed the tables.
-4. Run npm run dev and open localhost:3000.
-5. Run npm test, npm run lint, and npm run build. For real API checks, start production on port 3002 and run node scripts/verify-api.mjs.
+2. Copy .env.example to .env.local; configure SUPABASE_URL and server-only SUPABASE_SERVICE_ROLE_KEY.
+3. Run supabase/schema.sql in Supabase SQL Editor; identities are seeded there, with supabase/seed.sql also supplied.
+4. Run npm run dev and open localhost:3000 (or pass an available port).
+5. Run npm test, npm run lint, and npm run build. For browser checks, start production on port 3010 and run npm run test:e2e. See README.md for live-test environment variables.
+
+## Actual checks and manual evidence
+
+Final checks on November 17, 2026: **17 Vitest tests passed; lint passed; production build passed; all 5 Playwright checks passed against the public application.** Four browser checks use intercepted synthetic data; the real-data test opens/cancels confirmation, checks shared-user restrictions, and confirms document IDs remain unchanged. No existing production document was deleted during testing.
+
+The earlier 15 real API/Supabase integration checks passed and are preserved in verification-results.json; they were not rerun during final packaging. Six user-uploaded screenshots were inspected. The linked manual video walkthrough is supplied as human presentation evidence, not an assertion that every browser edge case was independently tested. Automated toolbar interactions and autosave timing do not have exhaustive browser coverage.
+
+The final source/history/archive audit is recorded in SECRET_AUDIT.md; no credential values are printed. AI_WORKFLOW.md is preserved as the truthful historical record. VERIFICATION.md and DELETE_VERIFICATION.md describe later validation.
 
 ## AI workflow
 
-Codex accelerated code generation, test cases, troubleshooting, and documentation. It inspected installed Next.js documentation, retained the starter architecture, and corrected issues discovered by actual lint/type/build runs. AI_WORKFLOW.md records the tools, decisions, and human involvement without claiming independent review that has not occurred. The user retains final review and submission.
+Codex accelerated implementation, test cases, troubleshooting, documentation, and packaging. It read installed Next.js guides, corrected issues found by actual lint/type/build runs, and tested the owner-only delete flow with mocked database mutations and an isolated browser. The user supplied requirements, configuration, manual screenshots, and the final recorded walkthrough, and retains final review and submission responsibility.
 
-## Tests and verification
+## Limitations and next improvements
 
-- **PASS:** 11 Vitest tests for permission logic, sharing validation, imports, safe conversion, titles, and content validation.
-- **PASS:** ESLint and the Next.js production build.
-- **PASS:** 15 real API integration checks on the public deployment covering database persistence, formatting JSON, import, sharing, access denial, duplicate shares, and version conflicts.
-- **NOT TESTED:** Browser toolbar interactions, autosave timing, and responsive visual checks.
+Demo identities are client-selected and impersonable. Editing is asynchronous; conflict recovery is manual and unsaved drafts are in memory. No real-time synchronization, comments, history, sharing revocation, pagination, PDF export, or deletion undo is claimed. Next work: verified sessions/user-scoped RLS, recovery drafts, conflict comparison, and broader browser coverage.
 
-Browser automation was attempted but stopped at a computer-use URL policy guard. See VERIFICATION.md for the manual checklist. Live API checks passed; browser interaction and screenshots remain pending.
+## Handoff
 
-## Limitations and planned improvements
-
-Demo identity is client selected and impersonable. Conflict recovery is manual, unsaved edits are held in memory, and the Markdown conversion supports a safe subset. There is no real-time synchronization, comments, history, PDF export, pagination, or sharing revocation. Another 2–4 hours would go toward verified sessions and RLS, browser regression tests, recovery drafts, and conflict comparison.
-
-The prepared package includes the source ZIP, setup instructions, architecture, actual AI workflow, verification evidence, and video script. The user will record the 3–5 minute video, add the real links, review this response, and submit the assessment personally.
+The Drive package includes the clean source ZIP, setup guide, architecture, preserved AI workflow, actual verification evidence, screenshots, final video link, and checksum. Before submitting, play the video from a signed-out browser and confirm its duration meets the assessment's 3-5 minute requirement. Review this Markdown and submit it with the video URL yourself. The assessment portal has not been submitted automatically.

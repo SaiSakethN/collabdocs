@@ -2,6 +2,16 @@
 
 A focused collaborative document workspace: write a draft, import your notes, and invite a teammate to edit. Built in the existing Next.js application for the Ajaia assessment.
 
+## Final deliverables
+
+- Live: https://collabdocs-ten-iota.vercel.app
+- Source: https://github.com/SaiSakethN/collabdocs
+- Submission: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir
+- Human-recorded walkthrough: https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing
+- Screenshots: https://drive.google.com/drive/folders/1wj_vQgtaIv6WjgEnfmU9TgKhCTzDI1vs
+
+Folder Viewer permission is confirmed in metadata. A signed-out request returned partial MP4 video content; the connector does not expose the exact video permission list. Video duration and end-to-end playback were not independently checked.
+
 ## Features
 
 - Responsive dashboard with search, owned documents, shared documents, owner names, and modification dates.
@@ -72,15 +82,15 @@ The API script defaults to http://localhost:3002. Set VERIFY_BASE_URL to test an
 5. Deploy, then test the actual public HTTPS origin. Run the API script with VERIFY_BASE_URL set to that URL and complete the browser checklist.
 6. Record verified links in the URL text files, SUBMISSION.md, and ASSESSMENT_RESPONSE.md. Public reviewers must be able to access the production URL without paying or signing into Vercel.
 
-Verified publication: https://collabdocs-ten-iota.vercel.app and https://github.com/SaiSakethN/collabdocs. All 15 API checks also passed on the public Vercel deployment. The Drive package is uploaded with public Viewer permission verified. The video and browser checklist remain pending.
+Verified publication: https://collabdocs-ten-iota.vercel.app and https://github.com/SaiSakethN/collabdocs. All 15 API checks also passed on the public Vercel deployment. The Drive package is uploaded with public Viewer permission verified. The final user-recorded walkthrough and six screenshots are supplied. Current checks passed: 17 Vitest tests, lint, production build, and 5 production browser checks focused on owner-only deletion. See VERIFICATION.md for the boundary between automated and manual evidence.
 
 ## Limitations
 
-Demo identities can be impersonated; real-time synchronization and automatic merge are out of scope. A conflict preserves edits in the open page but requires manual copy/reopen. Unsaved drafts do not survive a forced close or crash. Markdown supports common headings, paragraphs, emphasis, lists, quotes, and code; HTML is literal, links become text, and tables/images are not rendered as rich objects. There is no sharing revocation, document version history, pagination, or undo for permanent deletion. Browser tests and screenshots are pending because computer-use verification ended at its browser URL policy guard.
+Demo identities can be impersonated; real-time synchronization and automatic merge are out of scope. A conflict preserves edits in the open page but requires manual copy/reopen. Unsaved drafts do not survive a forced close or crash. Markdown supports common headings, paragraphs, emphasis, lists, quotes, and code; HTML is literal, links become text, and tables/images are not rendered as rich objects. There is no sharing revocation, document version history, pagination, or undo for permanent deletion. The original computer-use attempt was blocked, but later isolated Playwright coverage passed for owner-only deletion. Six user-provided screenshots were inspected and packaged. Exhaustive automated toolbar and autosave-timing coverage is not claimed.
 
 ## Submission
 
-See ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, VIDEO_SCRIPT.md, VERIFICATION.md, and ASSESSMENT_RESPONSE.md. The user records the walkthrough and submits the assessment. `scripts/package-submission.ps1` creates an upload-ready `ajaia-submission` directory and source ZIP without secrets, dependencies, caches, or Git internals.
+See ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, VIDEO_SCRIPT.md, VERIFICATION.md, and ASSESSMENT_RESPONSE.md. The final human-recorded walkthrough is linked above. The user reviews and submits the assessment; the portal has not been submitted automatically. AI_WORKFLOW.md is preserved as the original historical record, with later evidence in VERIFICATION.md and DELETE_VERIFICATION.md. `scripts/package-submission.ps1` creates an upload-ready `ajaia-submission` directory and source ZIP without secrets, dependencies, caches, or Git internals.
 
 ### Delete verification without deleting existing data
 

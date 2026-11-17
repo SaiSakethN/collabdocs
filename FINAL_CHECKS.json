@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-11-17T11:32:31.454Z",
+  "commands": {
+    "npm test": {
+      "status": "PASS",
+      "tests": 17,
+      "files": 2
+    },
+    "npm run lint": {
+      "status": "PASS",
+      "exitCode": 0
+    },
+    "npm run build": {
+      "status": "PASS",
+      "exitCode": 0
+    },
+    "npm run test:e2e": {
+      "status": "PASS",
+      "tests": 5,
+      "baseURL": "https://collabdocs-ten-iota.vercel.app",
+      "syntheticCases": 4,
+      "realDataReadCancelCases": 1,
+      "existingProductionDocumentsDeleted": 0
+    }
+  },
+  "previousIntegration": {
+    "status": "PASS",
+    "checks": 15,
+    "evidence": "verification-results.json",
+    "rerunDuringFinalPackaging": false
+  },
+  "folderAccess": {
+    "type": "anyone",
+    "role": "reader",
+    "permissionMetadataVerified": true
+  },
+  "video": {
+    "url": "https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing",
+    "exists": true,
+    "mimeType": "video/mp4",
+    "unauthenticatedHTTPStatus": 206,
+    "unauthenticatedVideoBytesAccessible": true,
+    "exactPermissionListAvailable": false,
+    "endToEndPlaybackReviewed": false,
+    "durationVerified": false
+  },
+  "screenshots": {
+    "userProvidedCount": 6,
+    "downloadedAndVisuallyInspected": true,
+    "existingCloudFilesPreserved": true
+  },
+  "aiWorkflow": {
+    "unchanged": true,
+    "sha256": "44dafbb6f7dd918fac2e4bf142872e1f9725825e159e9f749a7a8e985b8ffb7f"
+  },
+  "portalMarkdown": {
+    "file": "ASSESSMENT_RESPONSE.md",
+    "lines": 62
+  },
+  "portalSubmitted": false,
+  "secretAudit": {
+    "status": "PASS",
+    "sourceFiles": 63,
+    "historyBlobs": 111,
+    "frontendFiles": 15,
+    "archiveEntries": 63,
+    "forbiddenArchiveEntries": 0,
+    "detectedLocations": [],
+    "report": "SECRET_AUDIT.md"
+  }
+}

@@ -1,41 +1,58 @@
-# CollabDocs — Ajaia assessment
+﻿# CollabDocs - Ajaia assessment submission
 
-A focused workspace for writing, importing, saving, and sharing rich-text documents with a teammate.
+CollabDocs is a lightweight workspace for creating, editing, importing, saving, sharing, and deleting rich-text documents.
 
-## Links
+## Final links
 
 - Live application: https://collabdocs-ten-iota.vercel.app
-- GitHub repository: https://github.com/SaiSakethN/collabdocs
-- Walkthrough video: **PENDING — user will record and upload**
-- Google Drive folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir — Anyone with the link — Viewer verified in permission metadata. Source ZIP and all package documents uploaded and listed successfully.
+- GitHub: https://github.com/SaiSakethN/collabdocs
+- Submission folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir
+- Final human-recorded walkthrough: https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing
+- Screenshots: https://drive.google.com/drive/folders/1wj_vQgtaIv6WjgEnfmU9TgKhCTzDI1vs
 
-## Implemented
+Folder permission metadata confirms Anyone with the link - Viewer. The video exists as Video presentation.mp4; a signed-out request returned HTTP 206 with video/mp4 bytes. The connector does not expose the video's exact permission list. Video content, duration, and complete playback have not been independently reviewed by Codex.
 
-Responsive dashboard, search, owned/shared views, rich-text editor, renaming, JSON storage, debounced and manual saves, visible error status, unsaved warnings, version conflict detection, validated TXT/Markdown import, Supabase persistence, and owner/editor sharing. Server routes check demo identities, document access, recipients, and duplicate shares.
+## Implemented features
 
-## Demo identities
+- Responsive dashboard with search, owned/shared sections, owners, timestamps, and loading/empty/error states.
+- Tiptap editing: title changes, bold, italic, underline, headings, lists, undo/redo, and JSON persistence.
+- Debounced autosave, manual save, visible failures, unsaved-change warnings, and stale-write conflict detection.
+- Safe UTF-8 TXT/Markdown import with a 1 MiB limit and server-side validation.
+- Owner/editor sharing, validated recipients, duplicate prevention, and server-side permission checks.
+- Owner-only Delete document at the top-right three-dot menu on each card. A named confirmation dialog warns that deletion is permanent. Shared editors do not see Delete. The server independently checks ownership and filters the database mutation by ID and owner; sharing rows cascade.
+- Supabase PostgreSQL persistence across application deployments.
 
-Use the sidebar DEMO MODE switcher. Alice is alice@collabdocs.demo; Bob is bob@collabdocs.demo. There are no passwords. **This is publicly selectable demo identity, not secure authentication.** Use sample documents only.
+## Demo instructions
+
+Choose Alice (alice@collabdocs.demo) or Bob (bob@collabdocs.demo) in the DEMO MODE sidebar switcher. No passwords are required. Product Launch Plan is an Alice-owned demonstration document. Alice can share documents; Bob can open/edit granted documents in Shared with me. Only the owner can delete.
+
+**Demo identity switching is not secure authentication. Anyone can select either identity. Use sample content only.**
 
 ## Local setup
 
-Install Node 22 or 24. Run npm ci. Copy .env.example to .env.local and set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY. Run supabase/schema.sql in Supabase SQL Editor, then npm run dev. Open localhost:3000, or use an available port. Full instructions are in README.md.
+Use Node 22 or 24. Run npm ci. Copy .env.example to .env.local and configure SUPABASE_URL and the server-only SUPABASE_SERVICE_ROLE_KEY. Run supabase/schema.sql in Supabase SQL Editor (it includes the two demo identities); supabase/seed.sql is also supplied. Run npm run dev and open localhost:3000, or pass an available port. See README.md for full instructions.
 
-## Validation
+## Actual verification
 
-- PASS: 11 Vitest tests, ESLint, and production build.
-- PASS: 15 integration checks against the local production API and again against public Vercel, backed by Supabase.
-- NOT TESTED: browser formatting interactions, autosave timing, and responsive visual quality. Live API workflows passed.
-- Browser automation ended at its URL policy guard; no successful browser test or screenshot is claimed.
+Final packaging checks on November 17, 2026:
 
-See VERIFICATION.md and verification-results.json for evidence and the manual checklist.
+- PASS: npm test - 17 tests in 2 files.
+- PASS: npm run lint - exit code 0.
+- PASS: npm run build - compiled, type-checked, and generated all routes.
+- PASS: 5 Playwright checks against the live origin: four intercepted synthetic-data tests and one real-data read/cancel check. Real documents were not deleted.
+- Prior PASS: 15 real API/Supabase integration checks, preserved in verification-results.json. These were not rerun during final packaging because they create demo records.
+- Manual evidence: user-recorded final video and six uploaded screenshots; screenshot files were listed, downloaded into the local package, and visually inspected.
 
-## Limitations and next improvements
+The automated browser suite focuses on the card menu, owner restriction, confirmation/cancellation, synthetic deletion, error handling, and unchanged real document IDs. It does not constitute exhaustive browser coverage of every formatting control or autosave timing. The human walkthrough is manual evidence, not a fabricated automated test result. See VERIFICATION.md and DELETE_VERIFICATION.md.
 
-Client-selected demo identities can be impersonated. Next steps are verified sessions and user-scoped database policies, browser regression coverage, recovery drafts, conflict resolution, pagination, and sharing revocation. Real-time collaboration, comments, history, and PDF export were intentionally omitted. The walkthrough video and browser checks remain pending. The GitHub repository, Vercel deployment, Drive package contents, and public Viewer permission were verified through their respective services.
+## AI workflow and limitations
 
-## Submitted files
+AI_WORKFLOW.md is preserved byte-for-byte as the actual historical development record. Later owner-only deletion tests, screenshots, and final packaging results are recorded in VERIFICATION.md and DELETE_VERIFICATION.md rather than rewriting that history.
 
-The upload-ready directory contains source-code.zip, README.md, ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, VERIFICATION.md, verification-results.json, ASSESSMENT_RESPONSE.md, VIDEO_SCRIPT.md, DRIVE_UPLOAD.md, walkthrough-video.txt, live-product-url.txt, github-repository-url.txt, FILE_MANIFEST.txt, and screenshots/README.md.
+Demo identities are impersonable. Collaboration is asynchronous, with manual conflict recovery. There is no real-time synchronization, comments, history, sharing revocation, pagination, or PDF export. Permanent deletion has no undo. Next improvements would be verified sessions and user-scoped RLS, recovery drafts, conflict comparison, and broader browser regression coverage.
 
-The source ZIP includes application components, API routes, domain/import/database modules, SQL schema and seed records, tests, examples, verification and packaging scripts, .env.example, .gitignore, package.json, the dependency lockfile, Next/TypeScript/ESLint configuration, public assets, AGENTS.md, and submission documents. FILE_MANIFEST.txt lists every archived source file. Secrets, node_modules, .next, Git internals, and the submission directory itself are excluded.
+## Package contents
+
+The local ajaia-submission directory and existing Drive folder contain source-code.zip, README.md, ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, ASSESSMENT_RESPONSE.md, VERIFICATION.md, DELETE_VERIFICATION.md, SECRET_AUDIT.md, FINAL_CHECKS.json, verification-results.json, VIDEO_SCRIPT.md, DRIVE_UPLOAD.md, walkthrough-video.txt, live-product-url.txt, github-repository-url.txt, FILE_MANIFEST.txt, PACKAGE_SHA256.txt, and screenshots/.
+
+The source ZIP includes source code, API routes, owner-only deletion, SQL schema/seeds, tests, examples, configuration, dependency lockfile, documentation, and screenshots. It excludes secrets, actual environment files, dependencies, build output, browser test artifacts, caches, and Git internals. The video is linked, not embedded in the source ZIP. No assessment portal submission has been made.

@@ -13,7 +13,7 @@ flowchart LR
 
 ## Frontend
 
-`workspace.tsx` owns document lists, search, navigation, user switching, import, and sharing dialogs. `document-editor.tsx` owns rich text, title changes, save state, and unsaved-change warnings. The homepage is a server component that mounts the client workspace. Content is fetched on demand; document data is never placed in a shared static page cache.
+`workspace.tsx` owns document lists, search, navigation, user switching, import, sharing, and successful-delete list updates. `document-actions.tsx` renders each card's three-dot menu and the owner-only permanent-deletion confirmation dialog. `document-editor.tsx` owns rich text, title changes, save state, and unsaved-change warnings. The homepage is a server component that mounts the client workspace. Content is fetched on demand; document data is never placed in a shared static page cache.
 
 The light interface has responsive navigation, owned/shared badges, empty/loading/error states, accessible control labels, keyboard formatting shortcuts, and explicit DEMO MODE labeling. System fonts avoid a network dependency during builds.
 
@@ -67,3 +67,9 @@ With another 2–4 hours: verified authentication and RLS, browser automation ac
 ## Owner-only deletion
 
 The three-dot disclosure at each card's top-right opens document actions. Only owners see Delete document. A native modal dialog names the document, warns that deletion is permanent and removes collaborator access, focuses Cancel, and requires an explicit destructive confirmation. Failed requests leave the card intact and show an error. Successful responses remove it from the dashboard. DELETE /api/documents/:id checks identity, access, and ownership server-side, then filters the delete mutation by both document ID and owner ID. Existing ON DELETE CASCADE foreign keys remove sharing records atomically. The demo-identity security limitation still applies.
+
+## Final evidence and manual walkthrough
+
+Final recorded walkthrough: https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing . This is user-recorded manual presentation evidence; Codex verified file existence and signed-out video-byte access, but did not independently review the full recording or duration. The six screenshot files in screenshots/ show the dashboard, formatted editor, import, sharing, shared documents, and Delete confirmation. They were preserved from the existing Drive folder and visually inspected.
+
+Final packaging reran 17 unit tests, lint, build, and the 5 existing production browser tests. The browser suite focuses on Delete UI and uses intercepted synthetic mutations; its real-data case cancels confirmation and blocks DELETE traffic. Earlier 15 API integration checks remain timestamped in verification-results.json. Broader automated toolbar, autosave timing, and offline recovery testing is not implied. AI_WORKFLOW.md is preserved unchanged as historical development evidence.

@@ -1,9 +1,13 @@
-# Google Drive handoff
+﻿# Final Google Drive handoff
 
 Folder: https://drive.google.com/drive/folders/1fFJWe1o6CcWE30YC5T1YsLHBpNgYN2Ir
 
-The source ZIP and accompanying package files were uploaded and listed through the Drive connector. The user enabled public folder access, and permission metadata confirms **Anyone with the link — Viewer** (`type: anyone`, `role: reader`, no search discovery). A signed-out browser opening remains part of the manual checklist.
+The existing folder is reused. Public Anyone/reader (Viewer) permission is confirmed by metadata. Existing submission files are replaced in place so their Drive IDs stay stable. The six user-uploaded screenshot files are preserved in the existing screenshots subfolder.
 
-The local package is `ajaia-submission/`. If any cloud upload fails, upload this entire directory manually. Keep the same folder URL in the assessment response. The source ZIP excludes `.env.local`, dependencies, caches, and Git internals.
+Final video: https://drive.google.com/file/d/1bdiY5RR4Znl2j3Cx58X0S2Q2AsiLtpQN/view?usp=sharing
 
-Record and upload the video using VIDEO_SCRIPT.md, then replace the pending video link in walkthrough-video.txt, SUBMISSION.md, and ASSESSMENT_RESPONSE.md. Update local and Drive copies together. Run the packaging script again if any content changes. Do not submit until the public folder and video links work for reviewers.
+The video exists, and an unauthenticated range request returned HTTP 206 and video/mp4 content. The connector does not reveal its exact permission list. The full recording and duration have not been independently reviewed.
+
+The local ajaia-submission directory contains the clean source ZIP, documents, verification evidence, checksum, and screenshots. The original AI_WORKFLOW.md is preserved unchanged. See VERIFICATION.md for actual test scope and SECRET_AUDIT.md for the final source/archive scan.
+
+Remaining user steps: play the video signed out and check its 3-5 minute duration, rotate the previously chat-exposed key if not already done, review ASSESSMENT_RESPONSE.md, and submit the portal personally. No automatic portal submission is performed.
