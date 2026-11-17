@@ -102,10 +102,21 @@ export function validateContent(value: unknown): RichNode {
       n.attrs &&
       (typeof n.attrs !== "object" ||
         Object.keys(n.attrs).some(
-          (k) => !["level", "start", "language"].includes(k),
+          (k) => !["level", "start", "language", "type"].includes(k),
         ))
     )
       throw new AppError("Unsupported attributes.");
+    if (
+      n.attrs?.type != null &&
+      (n.type !== "orderedList" ||
+        !["1", "a", "A", "i", "I"].includes(String(n.attrs.type)))
+    )
+      throw new AppError("Invalid list style.");
+    if (
+      n.attrs?.start !== undefined &&
+      (!Number.isInteger(n.attrs.start) || Number(n.attrs.start) < 1)
+    )
+      throw new AppError("Invalid list start.");
     if (
       n.type === "heading" &&
       ![1, 2, 3, 4, 5, 6].includes(Number(n.attrs?.level))

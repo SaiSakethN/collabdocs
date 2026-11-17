@@ -9,6 +9,8 @@ import {
   emptyContent,
 } from "../src/lib/domain";
 import { importContent } from "../src/lib/import";
+import { getSchema } from "@tiptap/core";
+import StarterKit from "@tiptap/starter-kit";
 describe("document permissions", () => {
   it("allows the owner and explicitly shared editors only", () => {
     expect(canEdit("alice", "alice", [])).toBe(true);
@@ -73,6 +75,15 @@ describe("file import", () => {
   });
 });
 describe("document validation", () => {
+  it("accepts actual Tiptap numbered-list serialization", () => {
+    const schema = getSchema([StarterKit.configure({ link: false })]);
+    const node = schema.nodeFromJSON(
+      importContent("list.md", 20, "1. First\n2. Second"),
+    );
+    node.check();
+    expect(node.toJSON().content[0].attrs).toEqual({ start: 1, type: null });
+    expect(() => validateContent(node.toJSON())).not.toThrow();
+  });
   it("validates titles and rich-text structure", () => {
     expect(titleOf("  Draft  ")).toBe("Draft");
     expect(() => titleOf("")).toThrow();

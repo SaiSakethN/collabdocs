@@ -23,7 +23,7 @@ Install Node 22 or 24. Run npm ci. Copy .env.example to .env.local and set SUPAB
 
 ## Validation
 
-- PASS: 10 Vitest tests, ESLint, and production build.
+- PASS: 11 Vitest tests, ESLint, and production build.
 - PASS: 15 integration checks against the actual local production API and Supabase.
 - NOT TESTED: browser formatting interactions, autosave timing, responsive visual quality, and live deployment flows.
 - Browser automation ended at its URL policy guard; no successful browser test or screenshot is claimed.

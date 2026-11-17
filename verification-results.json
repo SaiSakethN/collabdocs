@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3002",
-  "verifiedAt": "2026-11-17T09:06:20.560Z",
+  "base": "http://localhost:3003",
+  "verifiedAt": "2026-11-17T09:10:25.677Z",
   "results": [
     {
       "name": "Homepage responds",

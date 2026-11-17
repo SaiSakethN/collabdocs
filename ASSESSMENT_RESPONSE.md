@@ -44,7 +44,7 @@ Codex accelerated code generation, test cases, troubleshooting, and documentatio
 
 ## Tests and verification
 
-- **PASS:** 10 Vitest tests for permission logic, sharing validation, imports, safe conversion, titles, and content validation.
+- **PASS:** 11 Vitest tests for permission logic, sharing validation, imports, safe conversion, titles, and content validation.
 - **PASS:** ESLint and the Next.js production build.
 - **PASS:** 15 real API integration checks covering database persistence, formatting JSON, import, sharing, access denial, duplicate shares, and version conflicts.
 - **NOT TESTED:** Browser toolbar interactions, autosave timing, and live deployment flows.
